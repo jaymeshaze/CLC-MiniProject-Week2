@@ -4,17 +4,16 @@
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <ui:composition template="/template.xhtml">
-        <ui:define name="title">Fortune Teller</ui:define>
-        <ui:define name="head">Fortune Teller</ui:define>
-        <ui:define name="content">
-            <h:form id="tellfortune">
-                <p><h:outputLabel value="Enter your name: " for="name"/>
-                    <h:inputText id="name" value="#{printer.name}"/></p>
-                <p><h:commandButton value="Tell My Fortune" action="#{printer.createOutlook}"</p>
-                <p><h:outputText value="#{printer.outlook}"/></p>
-            </h:form>
-            </ui:define>
-    </ui:composition>
+    <h:head>
+        <title>Week 2 - CLC Q1</title>
+    </h:head>
+    <h:body>
+        <h:form id="tellfortune">
+            <p><h:outputLabel value="Enter your name: " for="name"/>
+                <h:inputText id="name" value="#{printer.name}"/></p>
+            <p><h:commandButton value="Tell My Fortune" action="#{printer.tellFortune}"/></p>
+            <p><h:outputText value="#{printer.outlook}"/></p>
+        </h:form>
+    </h:body>
 </html>
 

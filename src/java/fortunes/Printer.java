@@ -1,36 +1,30 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package fortunes;
 
-import javax.enterprise.context.RequestScoped;
-import javax.inject.Inject;
-import javax.inject.Named;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 
-/**
- *
- * @author Kris Hayes
- */
-@Named
-@RequestScoped
-public class Printer {
-    @Inject Fortune fortune;
+@ManagedBean(name="printer")
+@SessionScoped
+public class Printer implements Fortune, java.io.Serializable {
     
     private String name;
     private String outlook;
     
-    public void createOutlook(){
-        this.outlook = fortune.tellFortune(name);
+    @Override
+    public void tellFortune() {
+        this.outlook = "Here is your fortune " + this.name;
     }
     
     public String getOutlook(){
-        return outlook;
+        return this.outlook;
+    }
+    
+    public void setOutlook(String outlook) {
+        this.outlook = outlook;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
